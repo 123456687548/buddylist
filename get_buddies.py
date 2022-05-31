@@ -250,6 +250,12 @@ def main(cookie):
                     own_current_song = result["item"]["uri"]
                     if last_own_current_song != own_current_song:
                         add_to_replay_playlist(sp, own_name, own_current_song)
+
+                        current_song = dict()
+    
+                        current_song[own_name] = own_current_song
+
+                        add_to_playlist(sp, current_song)
                         last_own_current_song = own_current_song
                     else:
                         logging.debug("No own changes")
